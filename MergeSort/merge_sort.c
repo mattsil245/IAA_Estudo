@@ -41,6 +41,9 @@ int merge(int * A, int p, int q, int r){
         j++;
         k++;
     }
+
+    free(seq1);
+    free(seq2);
 }
 
 void merge_sort(int * numeros, int p, int r){
@@ -126,5 +129,9 @@ int main(){
     for(int i=0; i<(a_tam+b_tam); i++){
         printf("%d ", c[i]);
     }
+
+    free(a);
+    free(b);
+    free(c);
     return 0;
 }
