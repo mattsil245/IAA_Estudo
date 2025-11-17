@@ -4,7 +4,7 @@
 
 #include "gerador_vetor.h"
 
-#define MAIOR_NUMERO 1000
+#define MAIOR_NUMERO 6
 
 void gerar_vetor(int *vetor, int n){
     srand(time(NULL));
@@ -16,6 +16,8 @@ void gerar_vetor(int *vetor, int n){
 }
 
 void saida_vetor(int * vetor, int tamanho){
+    printf("Tentando criar arquivo...\n");
+
     FILE *pont_arq;
     int r;
 
@@ -26,6 +28,8 @@ void saida_vetor(int * vetor, int tamanho){
     printf("Erro ao tentar abrir o arquivo!");
     exit(1);
     }
+    printf("Tentando criar arquivo...\n");
+
 
     for(int i=0; i<tamanho; i++){
         if(i % 9 == 0 && i != 0){
@@ -40,7 +44,7 @@ void saida_vetor(int * vetor, int tamanho){
         }
         else
             {
-                //printf("Dados gravados com sucesso. \n");
+                printf("Dados gravados com sucesso. \n");
             }
     }
 
