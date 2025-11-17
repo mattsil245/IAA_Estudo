@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "../gerador_vetor.h"
 
 int merge(int * A, int p, int q, int r){
     int i, j, k;
@@ -14,7 +15,7 @@ int merge(int * A, int p, int q, int r){
     }
 
     //Copiando sequencia A[q+1...r]
-    for(j=0; j<tam_seq1; j++){
+    for(j=0; j<tam_seq2; j++){
         seq2[j] = A[q+1+j];
     }
 
@@ -47,7 +48,7 @@ int merge(int * A, int p, int q, int r){
 }
 
 void merge_sort(int * numeros, int p, int r){
-    printf("p: %d r: %d\n", p, r);
+    //printf("p: %d r: %d\n", p, r);
     int q;
 
     if(p<r){
@@ -89,7 +90,7 @@ int * fusao(int * A, int a_length, int * B, int b_length){
 }
 
 int main(){
-    int a_tam = 3;
+    /* int a_tam = 3;
     int b_tam = 2;
     int * a = (int*) malloc(a_tam * sizeof(int));
     int * b = (int*) malloc(b_tam * sizeof(int));
@@ -121,17 +122,21 @@ int main(){
     printf("Fusao - Vetor C: ");
     for(int i=0; i<(a_tam+b_tam); i++){
         printf("%d ", c[i]);
-    }
+    } */
 
-    merge_sort(c, 0, (a_tam+b_tam)-1);
-    printf("\n");
+    int n = 1000000;
+    int * v = (int*) malloc(n * sizeof(int));
+    gerar_vetor(v, n);
+    merge_sort(v, 0, n-1);
+    saida_vetor(v, n);
+    /*printf("\n");
     printf("Merge Sort: ");
     for(int i=0; i<(a_tam+b_tam); i++){
-        printf("%d ", c[i]);
+         printf("%d ", c[i]);
     }
 
-    free(a);
+/*     free(a);
     free(b);
-    free(c);
+    free(c); */
     return 0;
 }

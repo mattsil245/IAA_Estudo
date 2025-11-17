@@ -1,4 +1,7 @@
 #include <stdio.h>
+#include <stdlib.h>
+
+#include "../gerador_vetor.h"
 
 int esquerda(int i){
     return (2*i)+1;
@@ -55,11 +58,10 @@ void heapSort(int * A, int n){
 }
 
 int main(){
-    int c[] = {4, 1, 3, 2, 7, 8, 15};
-    int n = 7;
-    heapSort(c, n);
-    for(int i=0; i<7; i++){
-        printf("%d ", c[i]);
-    }
+    int n = 1000000;
+    int * v = (int*) malloc(n * sizeof(int));
+    gerar_vetor(v, n);
+    heapSort(v, n);
+    saida_vetor(v, n);
     return 0;
 }
